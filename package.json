@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "To-do list app",
   "scripts": {
-    "install": "npm --prefix ./server install",
-    "build": "npm run build --prefix client/",
-    "deploy": "node ./server/server.js"
+    "install": "echo \"Hello!\"",
+    "deploy": "node ./server/src/server.js"
   },
   "author": "Yakir Hizkiyahu",
   "license": "ISC",
