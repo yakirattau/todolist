@@ -4,9 +4,9 @@
   "description": "To-do list app",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "if-env TYPE=server && (cd server && npm install) || (cd client && npm install)",
-    "server": "npm start --prefix server/",
-    "client": "npm start --prefix client/",
+    "install": "npm --prefix ./server install ./server/package/json && npm --prefix ./client install ./client/package/json",
+    "build": "npm run build --prefix client/",
+    "deploy": "npm start --prefix client/",
     "database": "docker compose -f ./server/src/docker-compose.yaml -p database up -d"
   },
   "author": "Yakir Hizkiyahu",

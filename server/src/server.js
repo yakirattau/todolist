@@ -43,17 +43,12 @@ app.use(
     }
 );
 
-// const mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost:27017/users')
-//     .then(() => console.log('Connected to mongoDB!'))
-//     .catch((e) => console.log(e));
-
 /* Serve frontend (v1) */
-// app.use(express.static(path.join(__dirname, '../../client/build')));
+app.use(express.static(path.join(__dirname, '../../client/build')));
 
-// app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, '../', '../', 'client', 'build', 'index.html'));
-// })
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../', '../', 'client', 'build', 'index.html'));
+})
 
 /* Serve frontend (v2) */
 // app.get('*', (req, res) => {
