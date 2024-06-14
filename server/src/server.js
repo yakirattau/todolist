@@ -14,19 +14,7 @@ app.use((req, res, next) => {
     next();
 });
 
-const whitelist = ['http://localhost:3000']; // authorized origins
-
-const corsOptions = {
-    origin: function (origin, callback) {
-        if (whitelist.includes(origin)) {
-            callback(null, true)
-        } else {
-            console.log(`origin: ${origin} not allowed`);
-            callback(new Error('Not allowed by CORS'))
-        }
-    }
-}
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(router);
 
