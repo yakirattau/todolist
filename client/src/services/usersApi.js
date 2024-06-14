@@ -1,4 +1,4 @@
-const URL = "http://localhost:8000";
+const URL = "https://todolist-yakir.onrender.com";
 
 /* POST - login */
 export const login = async (username, password) => {

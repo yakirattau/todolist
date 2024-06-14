@@ -1,4 +1,4 @@
-const URL = "http://localhost:8000";
+const URL = "https://todolist-yakir.onrender.com";
 
 /* GET */
 export const getTodos = async (username, token) => {
