@@ -9,16 +9,6 @@ const users = {}
 const signup = async (req, res, next) => {
     const { username, password } = req.body;
 
-    // fetch("http://localhost:8080/send", {
-    //     method: "POST",
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({
-    //         to: "yakirh@mail.tau.ac.il",
-    //         subject: "Subject #2",
-    //         body: "This is the message body###"
-    //     })
-    // })
-
     // throw new Error('Just because');
     // return next(new Error('Just because'));
 
@@ -49,23 +39,21 @@ const login = async (req, res) => {
     
     const token = generateToken(username);
     res.status(200).json({ username, token });
-
-    console.log(users);
 };
 
 /* Update user */
 
 /* Delete user */
-const deleteUser = async (req, res) => {
-    const { username, password } = req.body;
+// const deleteUser = async (req, res) => {
+//     const { username, password } = req.body;
 
-    if (!(username in users)) {
-        return res.status(404).json({ error: `A user named '${username}' does not exist.` });
-    }
+//     if (!(username in users)) {
+//         return res.status(404).json({ error: `A user named '${username}' does not exist.` });
+//     }
 
-    delete users[username];
-    console.log(users);
-    res.sendStatus(204);
-};
+//     delete users[username];
+//     console.log(users);
+//     res.sendStatus(204);
+// };
 
-module.exports = { signup, login, deleteUser };
+module.exports = { signup, login };
