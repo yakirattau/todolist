@@ -39,6 +39,7 @@ const login = async (req, res) => {
     
     const token = generateToken(username);
     res.status(200).json({ username, token });
+    console.log(users)
 };
 
 /* Update user */

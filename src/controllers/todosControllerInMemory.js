@@ -26,11 +26,11 @@ const updateTodo = async (req, res) => {
     const { id } = req.params;
     const { username, title, progress } = req.body;
 
-    todos.map(
-        todo => todo.id === id ? { id, username, title, progress } : todo
+    todos = todos.map(
+        todo => todo.id.toString() === id ? { id: todo.id, username, title, progress } : todo
     )
 
-    const updatedIndex = todos.findIndex(todo => todo.id === id)
+    const updatedIndex = todos.findIndex(todo => todo.id.toString() === id)
 
     res.status(200).json(todos[updatedIndex]); // later no need value
 };
@@ -38,12 +38,14 @@ const updateTodo = async (req, res) => {
 const deleteTodo = async (req, res) => {
     const { id } = req.params;
 
-    const deletedIndex = todos.findIndex(todo => todo.id === id)
+    const deletedIndex = todos.findIndex(todo => todo.id.toString() === id)
 
     const result = todos[deletedIndex];
 
     todos = todos.filter(
-        todo => todo.id !== id
+        todo => {
+            return todo.id.toString() !== id
+        }
     )
 
     res.status(200).json(result); // later no need value
